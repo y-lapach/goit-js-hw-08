@@ -27,6 +27,11 @@ function onFormSubmit(event) {
   event.preventDefault();
   console.log({ email: email.value, message: message.value });
 
+  if (email.value.trim() === '' || message.value.trim() === '') {
+    alert("Please enter required fields");
+    return;
+  }
+
   localStorage.removeItem(LOCALSTORAGE_KEY);
   event.currentTarget.reset();
   dataForm = {};
